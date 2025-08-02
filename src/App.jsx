@@ -9,13 +9,19 @@ import HQDashboard from './components/HQDashboard';
 export default function App() {
   return (
     <AuthProvider>
-      <HashRouter basename="/voltage-hq-dashboard">
+      <HashRouter>
         <Routes>
-          <Route path="/login"   element={<Login />} />
-          <Route path="/request" element={<RequestForm />} />
-          <Route path="/admin"   element={<AdminPanel />} />
-          <Route path="/hq"      element={<HQDashboard />} />
-          <Route path="*"        element={<Navigate to="/login" replace />} />
+          {/* Redirect root hash (#/) straight to #/login */}
+          <Route path="/"       element={<Navigate to="/login" replace />} />
+
+          {/* Your real routes */}
+          <Route path="login"   element={<Login />} />
+          <Route path="request" element={<RequestForm />} />
+          <Route path="admin"   element={<AdminPanel />} />
+          <Route path="hq"      element={<HQDashboard />} />
+
+          {/* Catch-all: send anything unknown back to login */}
+          <Route path="*"       element={<Navigate to="/login" replace />} />
         </Routes>
       </HashRouter>
     </AuthProvider>
