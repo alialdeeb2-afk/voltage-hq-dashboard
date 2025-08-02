@@ -1,13 +1,15 @@
--import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './components/AuthContext';
+import Login from './components/Login';
+import RequestForm from './components/RequestForm';
+import AdminPanel from './components/AdminPanel';
+import HQDashboard from './components/HQDashboard';
 
 export default function App() {
   return (
--    <AuthProvider>
--      <BrowserRouter>
-+    <AuthProvider>
-+      {/* ← tell React Router about the repo sub-folder */}
-+      <BrowserRouter basename="/voltage-hq-dashboard">
+    <AuthProvider>
+      <BrowserRouter basename="/voltage-hq-dashboard">
         <Routes>
           <Route path="/login"   element={<Login />} />
           <Route path="/request" element={<RequestForm />} />
@@ -15,9 +17,7 @@ export default function App() {
           <Route path="/hq"      element={<HQDashboard />} />
           <Route path="*"        element={<Navigate to="/login" replace />} />
         </Routes>
--      </BrowserRouter>
--    </AuthProvider>
-+      </BrowserRouter>
-+    </AuthProvider>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
