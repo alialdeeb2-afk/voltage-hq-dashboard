@@ -9,7 +9,7 @@ import HQDashboard from './components/HQDashboard';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter basename="/voltage-hq-dashboard">
         <Routes>
           <Route path="/login"   element={<Login />} />
           <Route path="/request" element={<RequestForm />} />
@@ -17,8 +17,7 @@ export default function App() {
           <Route path="/hq"      element={<HQDashboard />} />
           <Route path="*"        element={<Navigate to="/login" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
- 
