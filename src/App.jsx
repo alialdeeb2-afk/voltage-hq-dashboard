@@ -9,6 +9,11 @@ import HQDashboard from './components/HQDashboard';
 export default function App() {
   return (
     <AuthProvider>
+      {/* Test mount indicator */}
+      <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>
+        🚀 App Mounted 🚀
+      </h1>
+
       <HashRouter>
         <Routes>
           {/* Redirect root hash (#/) straight to #/login */}
