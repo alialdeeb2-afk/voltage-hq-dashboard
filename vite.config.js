@@ -10,5 +10,14 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     allowedHosts: ['*'],
+    // vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base: '/voltage-hq-dashboard/',    // ← add this line
+  plugins: [react()],
+})
+
   },
 });
